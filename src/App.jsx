@@ -1,43 +1,21 @@
-import React from 'react'
-import BeverageCard from './BeverageCard';
-const App = () => {
-  const beverageList = [
-    {
-    image: "1112.jpg",
-    name: "ขนมรูปปลาไทยากิ",
-    
-    },
-    {
-    image: "1113.jpg",
-    name: "มันเผาญี่ปุ่น",
-  
-    },
-    {
-    image: "1114.jpg",
-    name: "พิซซ่าญี่ปุ่นพันไม้",
-  
-    },
-    {
-    image: "1115.jpg",
-    name: "ยากิโซบะ",
-  
-    },
-    {
-    image: "1116.jpg",
-    name: "ทาโกะยากิ",
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import Layout from "./Components/Layout";
+import Course from "./pages/Course";
 
-  }
-   ]
- return (
-  <>
-  <h1>Street Food Japan</h1>
-  <hr />
-  {
-  beverageList.map((b)=>(
-  <BeverageCard key={b.name} {...b} />
-  ))
-  }
-  </>
- )
+function App() {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Course" element={<Course/>} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
-export default App
+export default App;
